@@ -1,19 +1,23 @@
 import { Satellite } from "lucide-react";
 import DashboardTabs from "@/components/DashboardTabs";
+import Navigation from "@/components/Navigation";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary/10 rounded-lg">
-              <Satellite className="w-8 h-8 text-primary" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Satellite className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <h1 className="text-2xl md:text-3xl font-bold">Climate-Resilient Urban Planning</h1>
+                <p className="text-sm text-muted-foreground">NASA Earth Observation Dashboard</p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-2xl md:text-3xl font-bold">Climate-Resilient Urban Planning</h1>
-              <p className="text-sm text-muted-foreground">NASA Earth Observation Dashboard</p>
-            </div>
+            <Navigation />
           </div>
         </div>
       </header>

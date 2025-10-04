@@ -53,6 +53,63 @@ export type Database = {
         }
         Relationships: []
       }
+      profiles: {
+        Row: {
+          created_at: string | null
+          full_name: string | null
+          id: string
+          organization: string | null
+          role: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          full_name?: string | null
+          id: string
+          organization?: string | null
+          role?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          full_name?: string | null
+          id?: string
+          organization?: string | null
+          role?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      satellite_data_cache: {
+        Row: {
+          data: Json
+          data_type: string
+          expires_at: string | null
+          fetched_at: string | null
+          id: string
+          latitude: number
+          longitude: number
+        }
+        Insert: {
+          data: Json
+          data_type: string
+          expires_at?: string | null
+          fetched_at?: string | null
+          id?: string
+          latitude: number
+          longitude: number
+        }
+        Update: {
+          data?: Json
+          data_type?: string
+          expires_at?: string | null
+          fetched_at?: string | null
+          id?: string
+          latitude?: number
+          longitude?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

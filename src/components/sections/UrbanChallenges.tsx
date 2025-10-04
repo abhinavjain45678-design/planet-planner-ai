@@ -1,9 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import HeatVulnerabilityMap from "../maps/HeatVulnerabilityMap";
-import FloodRiskMap from "../maps/FloodRiskMap";
-import AirQualityMap from "../maps/AirQualityMap";
-import UrbanGrowthMap from "../maps/UrbanGrowthMap";
+import RealTimeHeatMap from "../maps/RealTimeHeatMap";
+import RealTimeFloodMap from "../maps/RealTimeFloodMap";
+import RealTimeAirQualityMap from "../maps/RealTimeAirQualityMap";
+import RealTimeUrbanGrowthMap from "../maps/RealTimeUrbanGrowthMap";
 import CommunityFeedback from "../CommunityFeedback";
 
 const UrbanChallenges = () => {
@@ -28,19 +28,19 @@ const UrbanChallenges = () => {
         <TabsContent value="heat" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>🔥 Heat Vulnerability Index</CardTitle>
+              <CardTitle>🔥 Real-Time Heat Vulnerability Analysis</CardTitle>
               <CardDescription>
-                NASA MODIS & Landsat thermal data reveal urban heat islands and vulnerable populations
+                Search any location worldwide to analyze heat stress using NASA POWER API data
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <HeatVulnerabilityMap />
+              <RealTimeHeatMap />
               <div className="mt-4 space-y-2">
                 <h4 className="font-semibold">Data Sources:</h4>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• NASA MODIS Land Surface Temperature</li>
-                  <li>• Landsat 8/9 Thermal Infrared Sensor (TIRS)</li>
-                  <li>• SEDAC Population Density & Vulnerability Indices</li>
+                  <li>• NASA POWER API - Solar Radiation & Temperature</li>
+                  <li>• MODIS Land Surface Temperature (LST)</li>
+                  <li>• Real-time global coverage at any coordinates</li>
                 </ul>
               </div>
             </CardContent>
@@ -50,19 +50,19 @@ const UrbanChallenges = () => {
         <TabsContent value="flood" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>🌊 Flood Risk & Stormwater</CardTitle>
+              <CardTitle>🌊 Global Flood Risk Assessment</CardTitle>
               <CardDescription>
-                SRTM elevation + TRMM rainfall patterns for flood modeling
+                Analyze elevation and flood risk for any location using SRTM elevation data
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <FloodRiskMap />
+              <RealTimeFloodMap />
               <div className="mt-4 space-y-2">
                 <h4 className="font-semibold">Data Sources:</h4>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• NASA SRTM Digital Elevation Model (30m resolution)</li>
-                  <li>• TRMM/GPM Precipitation Data</li>
-                  <li>• Copernicus EU-DEM for European cities</li>
+                  <li>• Open-Elevation API (SRTM data)</li>
+                  <li>• NASA SRTM Digital Elevation Model</li>
+                  <li>• Global coverage for elevation analysis</li>
                 </ul>
               </div>
             </CardContent>
@@ -74,17 +74,17 @@ const UrbanChallenges = () => {
             <CardHeader>
               <CardTitle>🌫️ Air Quality Monitoring</CardTitle>
               <CardDescription>
-                Sentinel-5P TROPOMI & AERONET pollution tracking
+                Global air quality analysis (Sentinel-5P TROPOMI data simulation)
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <AirQualityMap />
+              <RealTimeAirQualityMap />
               <div className="mt-4 space-y-2">
                 <h4 className="font-semibold">Data Sources:</h4>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• ESA Sentinel-5P TROPOMI (NO₂, PM₂.₅, O₃)</li>
-                  <li>• NASA AERONET Aerosol Optical Depth</li>
-                  <li>• Copernicus Atmosphere Monitoring Service (CAMS)</li>
+                  <li>• Sentinel-5P TROPOMI (Simulated - requires Copernicus credentials)</li>
+                  <li>• NO₂, PM₂.₅, and O₃ measurements</li>
+                  <li>• Real Copernicus API integration available with credentials</li>
                 </ul>
               </div>
             </CardContent>
@@ -96,17 +96,17 @@ const UrbanChallenges = () => {
             <CardHeader>
               <CardTitle>🏙️ Urban Growth Scanner</CardTitle>
               <CardDescription>
-                Landsat time-series analysis for land-use change detection
+                Analyze urban development patterns worldwide
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <UrbanGrowthMap />
+              <RealTimeUrbanGrowthMap />
               <div className="mt-4 space-y-2">
                 <h4 className="font-semibold">Data Sources:</h4>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• NASA Landsat 8/9 Surface Reflectance (30m)</li>
-                  <li>• ESA Sentinel-2 Multi-Spectral Imagery (10m)</li>
-                  <li>• Copernicus Global Human Settlement Layer (GHSL)</li>
+                  <li>• Landsat 8/9 Surface Reflectance (simulated)</li>
+                  <li>• Sentinel-2 Multi-Spectral Imagery</li>
+                  <li>• Real analysis requires Google Earth Engine or USGS access</li>
                 </ul>
               </div>
             </CardContent>

@@ -8,8 +8,10 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import type { User } from "@supabase/supabase-js";
 
 const CommunityFeedback = () => {
+  const [user, setUser] = useState<User | null>(null);
   const [observationType, setObservationType] = useState("");
   const [severity, setSeverity] = useState("");
   const [description, setDescription] = useState("");
@@ -20,6 +22,18 @@ const CommunityFeedback = () => {
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markerRef = useRef<L.Marker | null>(null);
   const { toast } = useToast();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return;
@@ -95,6 +109,15 @@ const CommunityFeedback = () => {
   };
 
   const handleSubmit = async () => {
+    if (!user) {
+      toast({
+        title: "Authentication required",
+        description: "Please sign in to submit observations",
+        variant: "destructive",
+      });
+      return;
+    }
+
     if (!observationType || !severity || !latitude || !longitude) {
       toast({
         title: "Missing information",
@@ -109,6 +132,7 @@ const CommunityFeedback = () => {
     const { error } = await supabase
       .from('community_observations')
       .insert({
+        user_id: user.id,
         observation_type: observationType,
         severity,
         description,
@@ -150,6 +174,14 @@ const CommunityFeedback = () => {
 
   return (
     <div className="space-y-6">
+      {!user && (
+        <Card className="p-4 bg-muted/50">
+          <p className="text-sm text-center">
+            Please <a href="/auth" className="text-primary underline">sign in</a> to submit community observations
+          </p>
+        </Card>
+      )}
+
       <div>
         <h3 className="text-lg font-semibold mb-2">Report Local Observations</h3>
         <p className="text-sm text-muted-foreground">
@@ -210,11 +242,11 @@ const CommunityFeedback = () => {
 
         <Button
           onClick={handleSubmit}
-          disabled={isSubmitting || !latitude || !longitude || !observationType || !severity}
+          disabled={isSubmitting || !latitude || !longitude || !observationType || !severity || !user}
           className="w-full"
         >
           <Send className="w-4 h-4 mr-2" />
-          Submit Observation
+          {!user ? "Sign in to Submit" : "Submit Observation"}
         </Button>
       </div>
     </div>
