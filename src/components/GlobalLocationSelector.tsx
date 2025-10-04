@@ -7,6 +7,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
 
 interface GlobalLocationSelectorProps {
   onLocationSelect: (lat: number, lon: number, data: any) => void;
@@ -22,6 +23,7 @@ const GlobalLocationSelector = ({ onLocationSelect, dataType }: GlobalLocationSe
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markerRef = useRef<L.Marker | null>(null);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return;
@@ -76,7 +78,7 @@ const GlobalLocationSelector = ({ onLocationSelect, dataType }: GlobalLocationSe
       onLocationSelect(lat, lon, data.data);
       
       toast({
-        title: "Data Retrieved",
+        title: t('location.loading'),
         description: data.cached ? "Showing cached data" : "Fetched fresh satellite data",
       });
     } catch (error) {
@@ -154,26 +156,31 @@ const GlobalLocationSelector = ({ onLocationSelect, dataType }: GlobalLocationSe
 
   return (
     <div className="space-y-4">
-      <Card className="p-4">
+      <Card className="p-4 backdrop-blur-sm bg-card/90 border-primary/20">
+        <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          {t('location.title')}
+        </h3>
         <div className="flex gap-2 mb-4">
           <Input
-            placeholder="Search any city or location worldwide..."
+            placeholder={t('location.search')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
             disabled={isLoading}
+            className="border-primary/20"
           />
-          <Button onClick={handleSearch} disabled={isLoading}>
+          <Button onClick={handleSearch} disabled={isLoading} className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
             {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
           </Button>
         </div>
         
-        <div ref={mapRef} className="w-full h-[400px] rounded-lg" />
+        <p className="text-sm text-muted-foreground mb-2">{t('location.orClick')}</p>
+        <div ref={mapRef} className="w-full h-[400px] rounded-lg border border-primary/20" />
         
         {selectedLat && selectedLon && (
           <div className="text-sm text-muted-foreground mt-4 flex items-center gap-2">
-            <MapPin className="w-4 h-4" />
-            Selected: {selectedLat.toFixed(6)}, {selectedLon.toFixed(6)}
+            <MapPin className="w-4 h-4 text-primary" />
+            {selectedLat.toFixed(6)}, {selectedLon.toFixed(6)}
           </div>
         )}
       </Card>

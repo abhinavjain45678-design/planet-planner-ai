@@ -5,30 +5,33 @@ import UrbanChallenges from "./sections/UrbanChallenges";
 import Datasets from "./sections/Datasets";
 import Resources from "./sections/Resources";
 import AIInsights from "./sections/AIInsights";
+import { useTranslation } from "react-i18next";
 
 const DashboardTabs = () => {
+  const { t } = useTranslation();
+
   return (
     <Tabs defaultValue="overview" className="w-full">
       <TabsList className="grid w-full grid-cols-5 mb-8">
         <TabsTrigger value="overview" className="flex items-center gap-2">
           <Globe className="w-4 h-4" />
-          <span className="hidden sm:inline">Overview</span>
+          <span className="hidden sm:inline">{t('tabs.overview')}</span>
         </TabsTrigger>
         <TabsTrigger value="challenges" className="flex items-center gap-2">
           <AlertTriangle className="w-4 h-4" />
-          <span className="hidden sm:inline">Challenges</span>
+          <span className="hidden sm:inline">{t('tabs.urbanChallenges')}</span>
         </TabsTrigger>
         <TabsTrigger value="datasets" className="flex items-center gap-2">
           <Database className="w-4 h-4" />
-          <span className="hidden sm:inline">Datasets</span>
+          <span className="hidden sm:inline">{t('tabs.datasets')}</span>
         </TabsTrigger>
         <TabsTrigger value="resources" className="flex items-center gap-2">
           <BookOpen className="w-4 h-4" />
-          <span className="hidden sm:inline">Resources</span>
+          <span className="hidden sm:inline">{t('tabs.resources')}</span>
         </TabsTrigger>
         <TabsTrigger value="ai" className="flex items-center gap-2">
           <Sparkles className="w-4 h-4" />
-          <span className="hidden sm:inline">AI Insights</span>
+          <span className="hidden sm:inline">{t('tabs.aiInsights')}</span>
         </TabsTrigger>
       </TabsList>
 

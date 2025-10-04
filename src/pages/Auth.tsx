@@ -10,6 +10,7 @@ import { Satellite, Mail, Lock, User, Building2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { z } from "zod";
+import { useTranslation } from "react-i18next";
 
 const emailSchema = z.string().email("Invalid email address");
 const passwordSchema = z.string().min(6, "Password must be at least 6 characters");
@@ -17,6 +18,7 @@ const passwordSchema = z.string().min(6, "Password must be at least 6 characters
 const Auth = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
 
   // Login form
@@ -151,34 +153,42 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-background flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Space background effect */}
+      <div className="fixed inset-0 bg-gradient-to-b from-background via-background to-primary/5 pointer-events-none" />
+      <div className="fixed inset-0 opacity-30 pointer-events-none" style={{
+        backgroundImage: 'radial-gradient(circle at 20% 50%, hsl(var(--primary-glow) / 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.1) 0%, transparent 50%)',
+      }} />
+
+      <div className="w-full max-w-md relative z-10">
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="p-3 bg-primary/10 rounded-lg">
-            <Satellite className="w-8 h-8 text-primary" />
+          <div className="p-3 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg backdrop-blur-sm border border-primary/20">
+            <Satellite className="w-8 h-8 text-primary animate-pulse" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold">Climate Dashboard</h1>
-            <p className="text-sm text-muted-foreground">NASA Earth Observation</p>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              {t('app.title')}
+            </h1>
+            <p className="text-sm text-muted-foreground">{t('app.subtitle')}</p>
           </div>
         </div>
 
-        <Card>
+        <Card className="backdrop-blur-sm bg-card/90 border-primary/20">
           <CardHeader>
-            <CardTitle>Welcome</CardTitle>
-            <CardDescription>Sign in or create an account to contribute climate observations</CardDescription>
+            <CardTitle>{t('auth.welcome')}</CardTitle>
+            <CardDescription>{t('community.description')}</CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="login">
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="login">Login</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                <TabsTrigger value="login">{t('auth.signIn')}</TabsTrigger>
+                <TabsTrigger value="signup">{t('auth.signUp')}</TabsTrigger>
               </TabsList>
 
               <TabsContent value="login">
                 <form onSubmit={handleLogin} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="login-email">Email</Label>
+                    <Label htmlFor="login-email">{t('auth.email')}</Label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -194,7 +204,7 @@ const Auth = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="login-password">Password</Label>
+                    <Label htmlFor="login-password">{t('auth.password')}</Label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -210,7 +220,7 @@ const Auth = () => {
                   </div>
 
                   <Button type="submit" className="w-full" disabled={loading}>
-                    {loading ? "Logging in..." : "Login"}
+                    {loading ? "..." : t('auth.signIn')}
                   </Button>
                 </form>
               </TabsContent>
@@ -218,7 +228,7 @@ const Auth = () => {
               <TabsContent value="signup">
                 <form onSubmit={handleSignup} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="signup-name">Full Name</Label>
+                    <Label htmlFor="signup-name">{t('auth.fullName')}</Label>
                     <div className="relative">
                       <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -234,7 +244,7 @@ const Auth = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
+                    <Label htmlFor="signup-email">{t('auth.email')}</Label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -250,7 +260,7 @@ const Auth = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="signup-password">Password</Label>
+                    <Label htmlFor="signup-password">{t('auth.password')}</Label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -281,21 +291,21 @@ const Auth = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="role">Role</Label>
+                    <Label htmlFor="role">{t('auth.role')}</Label>
                     <Select value={role} onValueChange={setRole}>
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="resident">Resident</SelectItem>
-                        <SelectItem value="city_planner">City Planner</SelectItem>
-                        <SelectItem value="researcher">Researcher</SelectItem>
+                        <SelectItem value="resident">{t('auth.citizen')}</SelectItem>
+                        <SelectItem value="city_planner">{t('auth.urbanPlanner')}</SelectItem>
+                        <SelectItem value="researcher">{t('auth.researcher')}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <Button type="submit" className="w-full" disabled={loading}>
-                    {loading ? "Creating account..." : "Create Account"}
+                    {loading ? "..." : t('auth.signUp')}
                   </Button>
                 </form>
               </TabsContent>

@@ -1,0 +1,80 @@
+{
+  "app": {
+    "title": "Climate-Resilient Urban Planning",
+    "subtitle": "NASA Earth Observation Dashboard",
+    "footer": "Powered by NASA Earthdata, Copernicus, and Global Space Agency Partners",
+    "footerSubtitle": "Helping cities build climate resilience through satellite Earth observation"
+  },
+  "nav": {
+    "signIn": "Sign In",
+    "logOut": "Log out",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "language": "Language"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "urbanChallenges": "Urban Challenges",
+    "aiInsights": "AI Insights",
+    "datasets": "Datasets",
+    "resources": "Resources"
+  },
+  "location": {
+    "title": "Select Location",
+    "search": "Search for a city or coordinates...",
+    "orClick": "Or click anywhere on the map",
+    "loading": "Loading satellite data..."
+  },
+  "maps": {
+    "heat": {
+      "title": "Heat Vulnerability",
+      "description": "Real-time heat island analysis from NASA satellite data"
+    },
+    "flood": {
+      "title": "Flood Risk",
+      "description": "Terrain elevation and flood risk assessment"
+    },
+    "air": {
+      "title": "Air Quality",
+      "description": "Real-time air quality from satellite sensors"
+    },
+    "urban": {
+      "title": "Urban Growth",
+      "description": "Urban expansion patterns from satellite imagery"
+    }
+  },
+  "auth": {
+    "welcome": "Welcome to NASA Urban Planning",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full Name",
+    "role": "Role",
+    "selectRole": "Select a role",
+    "urbanPlanner": "Urban Planner",
+    "cityOfficial": "City Official",
+    "researcher": "Researcher",
+    "citizen": "Citizen",
+    "alreadyAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "signInHere": "Sign in here",
+    "signUpHere": "Sign up here"
+  },
+  "community": {
+    "title": "Community Observations",
+    "description": "Share your local climate observations to help improve our models",
+    "signInRequired": "Please sign in to submit observations",
+    "type": "Observation Type",
+    "selectType": "Select observation type",
+    "heatIsland": "Heat Island",
+    "flooding": "Flooding",
+    "airQuality": "Air Quality",
+    "urbanGrowth": "Urban Growth",
+    "location": "Location",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe what you observed...",
+    "submit": "Submit Observation",
+    "submitting": "Submitting..."
+  }
+}
