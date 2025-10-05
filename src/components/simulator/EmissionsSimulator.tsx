@@ -119,7 +119,11 @@ const EmissionsSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.emissions.aqiImprovement')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.aqiImprovement || results.analysis}
+                  {typeof results.aqiImprovement === 'string'
+                    ? results.aqiImprovement
+                    : typeof results.aqiImprovement === 'object'
+                    ? JSON.stringify(results.aqiImprovement)
+                    : results.analysis || 'Analysis in progress'}
                 </p>
               </div>
             </div>
@@ -128,7 +132,11 @@ const EmissionsSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.emissions.healthBenefits')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.healthBenefits || 'Reduced respiratory illnesses'}
+                  {typeof results.healthBenefits === 'string'
+                    ? results.healthBenefits
+                    : typeof results.healthBenefits === 'object'
+                    ? JSON.stringify(results.healthBenefits)
+                    : 'Reduced respiratory illnesses'}
                 </p>
               </div>
             </div>
@@ -137,7 +145,11 @@ const EmissionsSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.emissions.co2Reduction')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.co2Reduction || 'Significant CO2 reduction'}
+                  {typeof results.co2Reduction === 'string'
+                    ? results.co2Reduction
+                    : typeof results.co2Reduction === 'object'
+                    ? JSON.stringify(results.co2Reduction)
+                    : 'Significant CO2 reduction'}
                 </p>
               </div>
             </div>
@@ -146,7 +158,11 @@ const EmissionsSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.emissions.pollutantReduction')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.pollutantReduction || 'Lower NO2, SO2, and PM2.5 levels'}
+                  {typeof results.pollutantReduction === 'string'
+                    ? results.pollutantReduction
+                    : typeof results.pollutantReduction === 'object'
+                    ? JSON.stringify(results.pollutantReduction)
+                    : 'Lower NO2, SO2, and PM2.5 levels'}
                 </p>
               </div>
             </div>
@@ -154,7 +170,11 @@ const EmissionsSimulator = () => {
           {results.longTermImpact && (
             <div className="mt-4 p-4 rounded-lg bg-secondary/10 border border-secondary/20">
               <p className="font-medium text-secondary mb-2">{t('simulator.longTermOutlook')}</p>
-              <p className="text-sm text-muted-foreground">{results.longTermImpact}</p>
+              <p className="text-sm text-muted-foreground">
+                {typeof results.longTermImpact === 'string'
+                  ? results.longTermImpact
+                  : JSON.stringify(results.longTermImpact)}
+              </p>
             </div>
           )}
         </Card>

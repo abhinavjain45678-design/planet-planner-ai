@@ -119,7 +119,11 @@ const TreePlantingSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.treePlanting.co2Sequestration')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.co2Sequestration || results.analysis}
+                  {typeof results.co2Sequestration === 'string' 
+                    ? results.co2Sequestration 
+                    : typeof results.co2Sequestration === 'object'
+                    ? JSON.stringify(results.co2Sequestration)
+                    : results.analysis || 'Analysis in progress'}
                 </p>
               </div>
             </div>
@@ -128,7 +132,11 @@ const TreePlantingSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.treePlanting.temperatureReduction')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.temperatureReduction || 'Calculated based on tree coverage'}
+                  {typeof results.temperatureReduction === 'string'
+                    ? results.temperatureReduction
+                    : typeof results.temperatureReduction === 'object'
+                    ? JSON.stringify(results.temperatureReduction)
+                    : 'Calculated based on tree coverage'}
                 </p>
               </div>
             </div>
@@ -137,7 +145,11 @@ const TreePlantingSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.treePlanting.airQuality')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.airQualityImprovement || 'Significant improvement in PM2.5 levels'}
+                  {typeof results.airQualityImprovement === 'string'
+                    ? results.airQualityImprovement
+                    : typeof results.airQualityImprovement === 'object'
+                    ? JSON.stringify(results.airQualityImprovement)
+                    : 'Significant improvement in PM2.5 levels'}
                 </p>
               </div>
             </div>
@@ -146,7 +158,11 @@ const TreePlantingSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.treePlanting.stormwater')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.stormwaterBenefit || 'Enhanced water absorption capacity'}
+                  {typeof results.stormwaterBenefit === 'string'
+                    ? results.stormwaterBenefit
+                    : typeof results.stormwaterBenefit === 'object'
+                    ? JSON.stringify(results.stormwaterBenefit)
+                    : 'Enhanced water absorption capacity'}
                 </p>
               </div>
             </div>
@@ -154,7 +170,11 @@ const TreePlantingSimulator = () => {
           {results.longTermOutlook && (
             <div className="mt-4 p-4 rounded-lg bg-secondary/10 border border-secondary/20">
               <p className="font-medium text-secondary mb-2">{t('simulator.longTermOutlook')}</p>
-              <p className="text-sm text-muted-foreground">{results.longTermOutlook}</p>
+              <p className="text-sm text-muted-foreground">
+                {typeof results.longTermOutlook === 'string'
+                  ? results.longTermOutlook
+                  : JSON.stringify(results.longTermOutlook)}
+              </p>
             </div>
           )}
         </Card>

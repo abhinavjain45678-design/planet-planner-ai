@@ -122,7 +122,11 @@ const WetlandSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.wetland.floodMitigation')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.floodMitigation || results.analysis}
+                  {typeof results.floodMitigation === 'string'
+                    ? results.floodMitigation
+                    : typeof results.floodMitigation === 'object'
+                    ? JSON.stringify(results.floodMitigation)
+                    : results.analysis || 'Analysis in progress'}
                 </p>
               </div>
             </div>
@@ -131,7 +135,11 @@ const WetlandSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.wetland.carbonStorage')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.carbonStorage || 'Significant carbon sequestration capacity'}
+                  {typeof results.carbonStorage === 'string'
+                    ? results.carbonStorage
+                    : typeof results.carbonStorage === 'object'
+                    ? JSON.stringify(results.carbonStorage)
+                    : 'Significant carbon sequestration capacity'}
                 </p>
               </div>
             </div>
@@ -140,7 +148,11 @@ const WetlandSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.wetland.waterQuality')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.waterQuality || 'Natural filtration benefits'}
+                  {typeof results.waterQuality === 'string'
+                    ? results.waterQuality
+                    : typeof results.waterQuality === 'object'
+                    ? JSON.stringify(results.waterQuality)
+                    : 'Natural filtration benefits'}
                 </p>
               </div>
             </div>
@@ -149,7 +161,11 @@ const WetlandSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.wetland.biodiversity')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.biodiversityImpact || 'Enhanced habitat value'}
+                  {typeof results.biodiversityImpact === 'string'
+                    ? results.biodiversityImpact
+                    : typeof results.biodiversityImpact === 'object'
+                    ? JSON.stringify(results.biodiversityImpact)
+                    : 'Enhanced habitat value'}
                 </p>
               </div>
             </div>
@@ -157,7 +173,11 @@ const WetlandSimulator = () => {
           {results.recommendation && (
             <div className="mt-4 p-4 rounded-lg bg-secondary/10 border border-secondary/20">
               <p className="font-medium text-secondary mb-2">{t('simulator.recommendation')}</p>
-              <p className="text-sm text-muted-foreground">{results.recommendation}</p>
+              <p className="text-sm text-muted-foreground">
+                {typeof results.recommendation === 'string'
+                  ? results.recommendation
+                  : JSON.stringify(results.recommendation)}
+              </p>
             </div>
           )}
         </Card>

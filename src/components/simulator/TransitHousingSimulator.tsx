@@ -119,7 +119,11 @@ const TransitHousingSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.transitHousing.emissionsReduction')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.emissionsReduction || results.analysis}
+                  {typeof results.emissionsReduction === 'string'
+                    ? results.emissionsReduction
+                    : typeof results.emissionsReduction === 'object'
+                    ? JSON.stringify(results.emissionsReduction)
+                    : results.analysis || 'Analysis in progress'}
                 </p>
               </div>
             </div>
@@ -128,7 +132,11 @@ const TransitHousingSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.transitHousing.congestionImpact')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.congestionImpact || 'Reduced traffic congestion'}
+                  {typeof results.congestionImpact === 'string'
+                    ? results.congestionImpact
+                    : typeof results.congestionImpact === 'object'
+                    ? JSON.stringify(results.congestionImpact)
+                    : 'Reduced traffic congestion'}
                 </p>
               </div>
             </div>
@@ -137,7 +145,11 @@ const TransitHousingSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.transitHousing.landUseEfficiency')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.landUseEfficiency || 'Optimized urban density'}
+                  {typeof results.landUseEfficiency === 'string'
+                    ? results.landUseEfficiency
+                    : typeof results.landUseEfficiency === 'object'
+                    ? JSON.stringify(results.landUseEfficiency)
+                    : 'Optimized urban density'}
                 </p>
               </div>
             </div>
@@ -146,7 +158,11 @@ const TransitHousingSimulator = () => {
               <div>
                 <p className="font-medium">{t('simulator.transitHousing.qualityOfLife')}</p>
                 <p className="text-sm text-muted-foreground">
-                  {results.qualityOfLife || 'Improved accessibility and livability'}
+                  {typeof results.qualityOfLife === 'string'
+                    ? results.qualityOfLife
+                    : typeof results.qualityOfLife === 'object'
+                    ? JSON.stringify(results.qualityOfLife)
+                    : 'Improved accessibility and livability'}
                 </p>
               </div>
             </div>
@@ -154,7 +170,11 @@ const TransitHousingSimulator = () => {
           {results.feasibility && (
             <div className="mt-4 p-4 rounded-lg bg-secondary/10 border border-secondary/20">
               <p className="font-medium text-secondary mb-2">{t('simulator.feasibility')}</p>
-              <p className="text-sm text-muted-foreground">{results.feasibility}</p>
+              <p className="text-sm text-muted-foreground">
+                {typeof results.feasibility === 'string'
+                  ? results.feasibility
+                  : JSON.stringify(results.feasibility)}
+              </p>
             </div>
           )}
         </Card>
