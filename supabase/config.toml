@@ -1,1 +1,13 @@
 project_id = "mykkgziighwrkiqpinsq"
+
+[functions.fetch-satellite-data]
+verify_jwt = false
+
+[functions.climate-ai-chat]
+verify_jwt = false
+
+[functions.eco-simulation]
+verify_jwt = false
+
+[functions.zoning-copilot]
+verify_jwt = false

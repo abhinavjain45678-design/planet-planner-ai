@@ -18,7 +18,8 @@
     "datasets": "डेटासेट",
     "resources": "संसाधन",
     "aiInsights": "AI अंतर्दृष्टि",
-    "ecoSimulator": "इको फ्यूचर"
+    "ecoSimulator": "इको फ्यूचर",
+    "zoningCopilot": "ज़ोनिंग AI"
   },
   "location": {
     "title": "स्थान चुनें",
@@ -143,5 +144,29 @@
       "landUseEfficiency": "भूमि उपयोग दक्षता",
       "qualityOfLife": "जीवन की गुणवत्ता"
     }
+  },
+  "zoning": {
+    "title": "सतत ज़ोनिंग के लिए AI सहायक",
+    "subtitle": "NASA पृथ्वी अवलोकन डेटा और AI विश्लेषण का उपयोग करके इष्टतम ज़ोनिंग सिफारिशें उत्पन्न करें",
+    "selectLocationFirst": "कृपया पहले एक स्थान चुनें",
+    "enterGoals": "कृपया अपने योजना लक्ष्य दर्ज करें",
+    "recommendationsGenerated": "सिफारिशें उत्पन्न की गईं",
+    "reviewRecommendations": "नीचे AI-जनित ज़ोनिंग सिफारिशों की समीक्षा करें",
+    "planningParameters": "योजना मापदंड",
+    "planningGoals": "योजना लक्ष्य",
+    "goalsPlaceholder": "उदा., शहरी ऊष्मा द्वीपों को कम करना, बाढ़ लचीलापन में सुधार, हरित स्थानों में वृद्धि, सतत विकास का समर्थन...",
+    "budgetRange": "बजट सीमा",
+    "lowBudget": "कम बजट ($1M - $5M)",
+    "mediumBudget": "मध्यम बजट ($5M - $20M)",
+    "highBudget": "उच्च बजट ($20M+)",
+    "generatePlan": "ज़ोनिंग योजना उत्पन्न करें",
+    "generating": "AI सिफारिशें उत्पन्न हो रही हैं...",
+    "primaryRecommendations": "प्राथमिक ज़ोनिंग सिफारिशें",
+    "greenSpaceStrategy": "हरित स्थान रणनीति",
+    "densityOptimization": "घनत्व अनुकूलन",
+    "infrastructurePriorities": "बुनियादी ढांचा प्राथमिकताएं",
+    "scenarioComparison": "परिदृश्य तुलना",
+    "analysis": "AI विश्लेषण",
+    "noRecommendations": "AI-संचालित ज़ोनिंग सिफारिशें उत्पन्न करने के लिए एक स्थान चुनें और अपने योजना लक्ष्य दर्ज करें"
   }
 }

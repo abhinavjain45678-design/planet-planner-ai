@@ -18,7 +18,8 @@
     "datasets": "Datasets",
     "resources": "Resources",
     "aiInsights": "AI Insights",
-    "ecoSimulator": "EcoFuture"
+    "ecoSimulator": "EcoFuture",
+    "zoningCopilot": "Zoning AI"
   },
   "location": {
     "title": "Select Location",
@@ -143,5 +144,29 @@
       "landUseEfficiency": "Land Use Efficiency",
       "qualityOfLife": "Quality of Life"
     }
+  },
+  "zoning": {
+    "title": "AI Copilot for Sustainable Zoning",
+    "subtitle": "Generate optimal zoning recommendations using NASA Earth observation data and AI analysis",
+    "selectLocationFirst": "Please select a location first",
+    "enterGoals": "Please enter your planning goals",
+    "recommendationsGenerated": "Recommendations Generated",
+    "reviewRecommendations": "Review the AI-generated zoning recommendations below",
+    "planningParameters": "Planning Parameters",
+    "planningGoals": "Planning Goals",
+    "goalsPlaceholder": "e.g., Reduce urban heat islands, improve flood resilience, increase green spaces, support sustainable growth...",
+    "budgetRange": "Budget Range",
+    "lowBudget": "Low Budget ($1M - $5M)",
+    "mediumBudget": "Medium Budget ($5M - $20M)",
+    "highBudget": "High Budget ($20M+)",
+    "generatePlan": "Generate Zoning Plan",
+    "generating": "Generating AI Recommendations...",
+    "primaryRecommendations": "Primary Zoning Recommendations",
+    "greenSpaceStrategy": "Green Space Strategy",
+    "densityOptimization": "Density Optimization",
+    "infrastructurePriorities": "Infrastructure Priorities",
+    "scenarioComparison": "Scenario Comparison",
+    "analysis": "AI Analysis",
+    "noRecommendations": "Select a location and enter your planning goals to generate AI-powered zoning recommendations"
   }
 }

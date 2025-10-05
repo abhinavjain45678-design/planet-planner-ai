@@ -1,11 +1,12 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Globe, AlertTriangle, Database, BookOpen, Sparkles, Sprout } from "lucide-react";
+import { Globe, AlertTriangle, Database, BookOpen, Sparkles, Sprout, Building } from "lucide-react";
 import Overview from "./sections/Overview";
 import UrbanChallenges from "./sections/UrbanChallenges";
 import Datasets from "./sections/Datasets";
 import Resources from "./sections/Resources";
 import AIInsights from "./sections/AIInsights";
 import EcoFutureSimulator from "./sections/EcoFutureSimulator";
+import ZoningCopilot from "./zoning/ZoningCopilot";
 import { useTranslation } from "react-i18next";
 
 const DashboardTabs = () => {
@@ -13,7 +14,7 @@ const DashboardTabs = () => {
 
   return (
     <Tabs defaultValue="overview" className="w-full">
-      <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 mb-8">
+      <TabsList className="grid w-full grid-cols-3 lg:grid-cols-7 mb-8">
         <TabsTrigger value="overview" className="flex items-center gap-2">
           <Globe className="w-4 h-4" />
           <span className="hidden sm:inline">{t('tabs.overview')}</span>
@@ -37,6 +38,10 @@ const DashboardTabs = () => {
         <TabsTrigger value="simulator" className="flex items-center gap-2">
           <Sprout className="w-4 h-4" />
           <span className="hidden sm:inline">{t('tabs.ecoSimulator')}</span>
+        </TabsTrigger>
+        <TabsTrigger value="zoning" className="flex items-center gap-2">
+          <Building className="w-4 h-4" />
+          <span className="hidden sm:inline">{t('tabs.zoningCopilot')}</span>
         </TabsTrigger>
       </TabsList>
 
@@ -62,6 +67,10 @@ const DashboardTabs = () => {
 
       <TabsContent value="simulator">
         <EcoFutureSimulator />
+      </TabsContent>
+
+      <TabsContent value="zoning">
+        <ZoningCopilot />
       </TabsContent>
     </Tabs>
   );
