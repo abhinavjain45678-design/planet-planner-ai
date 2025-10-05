@@ -14,10 +14,11 @@
   },
   "tabs": {
     "overview": "Overview",
-    "urbanChallenges": "Urban Challenges",
-    "aiInsights": "AI Insights",
+    "urbanChallenges": "Challenges",
     "datasets": "Datasets",
-    "resources": "Resources"
+    "resources": "Resources",
+    "aiInsights": "AI Insights",
+    "ecoSimulator": "EcoFuture"
   },
   "location": {
     "title": "Select Location",
@@ -76,5 +77,71 @@
     "descriptionPlaceholder": "Describe what you observed...",
     "submit": "Submit Observation",
     "submitting": "Submitting..."
+  },
+  "ai": {
+    "title": "Climate AI Assistant",
+    "subtitle": "Ask questions about climate resilience, urban planning, and NASA satellite data",
+    "placeholder": "Ask about heat islands, flood risks, air quality...",
+    "send": "Send"
+  },
+  "simulator": {
+    "title": "EcoFuture Simulator",
+    "subtitle": "Simulate environmental interventions and predict their long-term impact using NASA data and Gemini AI",
+    "runSimulation": "Run Simulation",
+    "simulating": "Simulating...",
+    "simulationComplete": "Simulation Complete",
+    "resultsGenerated": "Results have been generated based on AI analysis",
+    "results": "Simulation Results",
+    "longTermOutlook": "Long-term Outlook",
+    "recommendation": "Recommendation",
+    "feasibility": "Feasibility Analysis",
+    "years": "years",
+    "hectares": "hectares",
+    "treePlanting": {
+      "tab": "Trees",
+      "title": "Tree Planting Impact Simulator",
+      "description": "Simulate the environmental impact of urban tree planting initiatives",
+      "numberOfTrees": "Number of Trees",
+      "timeframe": "Timeframe",
+      "co2Sequestration": "CO₂ Sequestration",
+      "temperatureReduction": "Temperature Reduction",
+      "airQuality": "Air Quality Improvement",
+      "stormwater": "Stormwater Management"
+    },
+    "wetland": {
+      "tab": "Wetlands",
+      "title": "Wetland Management Simulator",
+      "description": "Compare outcomes of preserving, restoring, or developing wetland areas",
+      "action": "Action",
+      "preserve": "Preserve Wetland",
+      "restore": "Restore Wetland",
+      "build": "Build on Wetland",
+      "area": "Area",
+      "floodMitigation": "Flood Mitigation",
+      "carbonStorage": "Carbon Storage",
+      "waterQuality": "Water Quality",
+      "biodiversity": "Biodiversity Impact"
+    },
+    "emissions": {
+      "tab": "Emissions",
+      "title": "Industrial Emissions Reduction Simulator",
+      "description": "Model the impact of reducing industrial emissions on air quality and public health",
+      "reductionPercent": "Emission Reduction",
+      "aqiImprovement": "Air Quality Index Improvement",
+      "healthBenefits": "Public Health Benefits",
+      "co2Reduction": "CO₂ Reduction",
+      "pollutantReduction": "Pollutant Reduction"
+    },
+    "transitHousing": {
+      "tab": "Transit",
+      "title": "Transit-Oriented Housing Simulator",
+      "description": "Evaluate the sustainability impact of building housing near transit hubs",
+      "housingUnits": "Housing Units",
+      "transitDistance": "Distance from Transit",
+      "emissionsReduction": "Transportation Emissions Reduction",
+      "congestionImpact": "Traffic Congestion Impact",
+      "landUseEfficiency": "Land Use Efficiency",
+      "qualityOfLife": "Quality of Life"
+    }
   }
 }

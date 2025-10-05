@@ -1,10 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Globe, AlertTriangle, Database, BookOpen, Sparkles } from "lucide-react";
+import { Globe, AlertTriangle, Database, BookOpen, Sparkles, Sprout } from "lucide-react";
 import Overview from "./sections/Overview";
 import UrbanChallenges from "./sections/UrbanChallenges";
 import Datasets from "./sections/Datasets";
 import Resources from "./sections/Resources";
 import AIInsights from "./sections/AIInsights";
+import EcoFutureSimulator from "./sections/EcoFutureSimulator";
 import { useTranslation } from "react-i18next";
 
 const DashboardTabs = () => {
@@ -12,7 +13,7 @@ const DashboardTabs = () => {
 
   return (
     <Tabs defaultValue="overview" className="w-full">
-      <TabsList className="grid w-full grid-cols-5 mb-8">
+      <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 mb-8">
         <TabsTrigger value="overview" className="flex items-center gap-2">
           <Globe className="w-4 h-4" />
           <span className="hidden sm:inline">{t('tabs.overview')}</span>
@@ -32,6 +33,10 @@ const DashboardTabs = () => {
         <TabsTrigger value="ai" className="flex items-center gap-2">
           <Sparkles className="w-4 h-4" />
           <span className="hidden sm:inline">{t('tabs.aiInsights')}</span>
+        </TabsTrigger>
+        <TabsTrigger value="simulator" className="flex items-center gap-2">
+          <Sprout className="w-4 h-4" />
+          <span className="hidden sm:inline">{t('tabs.ecoSimulator')}</span>
         </TabsTrigger>
       </TabsList>
 
@@ -53,6 +58,10 @@ const DashboardTabs = () => {
 
       <TabsContent value="ai">
         <AIInsights />
+      </TabsContent>
+
+      <TabsContent value="simulator">
+        <EcoFutureSimulator />
       </TabsContent>
     </Tabs>
   );
